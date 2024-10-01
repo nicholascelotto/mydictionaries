@@ -17,6 +17,9 @@ room-number,use,sq-ft,price
 
 
 
+# 1 key value pair: medical 
+# value: list
+
 
 datastore = { "medical":[
       { "room-number": 100,
@@ -47,3 +50,29 @@ datastore = { "medical":[
 
       ]
 }
+
+
+# dictionary: datastore
+# key: medical
+# value: list of dictionaries
+datastore["medical"]
+
+
+import csv
+
+
+# Open a file in write mode
+outfile = open('retail_spacee.csv', 'w', newline='')
+
+# Create the CSV writer object
+writer = csv.DictWriter(outfile, fieldnames=["room-number", "use", "sq-ft", "price"])
+
+# Write the header
+writer.writeheader()
+
+# Write the data rows
+for space in datastore['medical']:
+    writer.writerow(space)
+
+# Close the file
+outfile.close()

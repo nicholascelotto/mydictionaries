@@ -207,3 +207,12 @@ ProduceDictionary={
     }
 }
 
+
+
+for produce, details in ProduceDictionary.items():
+    calculated_total = round(details['cost'] * details['amt_sold'], 2)
+    
+    if calculated_total != details['total']:
+        print(f"Discrepancy found for {produce}:")
+        print(f"  Stated Total: {details['total']}")
+        print(f"  Calculated Total: {calculated_total}")
